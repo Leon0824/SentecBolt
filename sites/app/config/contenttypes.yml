@@ -4,8 +4,8 @@
 # https://docs.bolt.cm/contenttypes-and-records
 
 investigation_reports:
-    name: Investigation Reports
-    singular_name: Investigation Report
+    name: InvestigationReports
+    singular_name: InvestigationReport
     fields:
         title:
             type: text
@@ -291,11 +291,11 @@ pages:
 #         datetime:
 #             type: datetime
 #             default: "2000-01-01"
-#             variant: inline            
+#             variant: inline
 #         date:
 #             type: date
 #             default: "first day of last month"
-#             variant: inline            
+#             variant: inline
 #         integerfield:
 #             type: integer
 #             index: true
@@ -313,7 +313,8 @@ pages:
 #             type: select
 #             values: entries/id,title
 #             postfix: "Select an entry"
-#             class: wide
+#             autocomplete: true
+#             sort: title
 #     relations:
 #         entries:
 #             multiple: false

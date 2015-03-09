@@ -1,17 +1,54 @@
-Bolt 2.0.6
-----------
+Bolt 2.1 DEV-head
+-----------------
 
-Released 2015-02-06. Notable changes:
+Beta released on 2015-03-02. Notable changes:
 
+- Added: Allow for `https://` protocol in `canonical` setting in config.yml. (see #3044)
+- Added: Taiwanese (zh_TW) localisation. (#3022, thanks @Leon0824)
+- Fixed: Update CKEditor field objects if they exist on AJAX content saves. (See #2998)
+- Added: A logging record for extension update and uninstall (see #2993)
+- Added: Client-side validation (first for floats only). (see #2997)
+- Change: Float field now not html5 number field anymore, and both `,` and `.` are allowed as decimal seperator.
+- Change: The distribution now includes `composer.json.dist` and  `composer.lock.dist` files, if you need them.
+- Added: Allow extensions to be used as controllers (non static) (see #2971)
 - Fixed: Long conttenttype names are truncated properly in the sidebar now. (See #2513)
 - Fixed: Don't leak Database credentials on connection error during set up. (See #2538)
-- Fixed: Corner case bug in password reset (See #2617)
+- Change: Remove unused jquery-catchpaste.
+- Change: Many changes (for the better) to logging: Monolog, improved UI, separation of concerns.
+- Refactor: Many changes and improvements to the Config object.
+- Refactor: Major cleanup in Bolt\Storage, Bolt\Events\StorageEvents and Bolt\Content (#2664)
+- **Updated: PHPUnit now covers complete code base** (#2542, thanks @rossriley)
+- **Updated: Extensions interface had major overhaul and now uses the Composer API more extensively and provides better error handling for AJAX calls on the Extend page** (#2543 thanks @GawainLynch)
+- **Update: Bolt's custom logging provider has been replaced with Monolog** (#2546, thanks @GawainLynch)
+- Added: Extension repo as service: extracts the queries of the Extensions repo to a separate service provider.
+ (#2550 thanks @rossriley)
+- Added: BASH/ZSH command completion for Nut (see #2657)
+- Updated: Magnific popup is now at 1.0.0. (#2560, thanks @cdowdy)
+- Updated: FlySystem from version 0.5 to 1.1, with php5.3 patch. (#2587)
+- Fixed: arrays in type:select fields. (#2609)
+- Added: Allow for `keys: slug` in `type: select` fields, to customize the used field that's actually stored in the DB. (#2597)
 - Fixed: Small logic fix for 'groupingSort'. (See #2520)
-- Fixed: Nest folders in cache 2 deep. (See #2644)
-- Fixed: Arrays in type:select fields. (#2609)
-- Added: Allow for 'keys: slug' in 'type: select' fields, to customize the used field that's actually stored in the DB. (#2597)
+- Fixed: Have `Cache::clearCache()` use $app['resources']->getPath('root') for the 'thumbs' directory (See #2512)
+- Fixed: Corner case bug in password reset (See #2616)
+- Added: Editing content now shows recent changes that have been logged (if enabled) that link to the change comparison (See #2620)
+- Fixed: Minor HTML fix and broken link in base-2015 theme (#2650, thanks @apatkinson)
+- Fixed: Nest folders in cache 2 deep. (see #2644)
+- Fixed: bug fixed in "Select in all items" in overview. (See #2669)
 - Fixed: Fix filebrowser route binding name to be 'filebrowser' (See #2680)
+- Fixed: Allow setting of regex pattern, replacement and case of uploaded file names (See #2691)
 - Fixed: Regression that would break the ability to set global Twig variables in an extension (See #2717)
+- Changed: Enforce SSL Config Change. Now we use only `enforce_ssl`, `cookies_https_only` is deprecated. (See #2726, thanks @dwolf555)
+- Fixed: Flipped array replace arguments in `parseFieldsAndGroups()`. (See #2738)
+- **Fixed: No more unwanted `&nbsp;`'s in CKeditor.** Fixes #2660
+- Fixed: Logged in user can no longer disable themselves
+- Fixed: Disabling a logged in user with force a logout
+- Fixed: Fixed a bug with some utf8 characters becoming question marks after saving to database. (Thanks @dwr, See #2804)
+- Fixed: Fix #2424 and other tab group improvements #2801 (TODO: Specify!)
+- Added: Installed extensions now defaults to adding version constraints to allow for easier updating
+- Change: The `X-Frame-Options`-header is now only sent for backend pages, and can be disabled in `config.yml` (See #2825)
+- Change: Bolt now distinguishes between 'regular news' and 'alerts' on the Dashboard screen. This way, we can better notify people in case of an urgent security issue. (See #2830)
+- Fixed: The built-in anti-CSRF token was renamed to `bolt_csrf_token` to prevent clashes when a user has a field named `token`. (See #2831)
+- Change: You can now use `{id}` in routes for records instead of `{slug}`, if you wish to have links to records using the id. (See #2832)
 
 Bolt 2.0.5
 ----------
@@ -21,7 +58,7 @@ Released 2015-01-21. Notable changes:
 - Fixed: appending `order=...` to arbitrary Bolt URLs will no longer silently try to apply sorting to getContent.
 - Fixed: For extensions adding Twig functions in content: `isSafe()` works correctly now (#2492, thanks @jmschelcher)
 - Change: Use Twig’s `resolveTemplate` instead of `file_exists` in Frontend Controller. (#2494, thanks @lavoiesl)
-- Fixed: Remove horizontal scroll on loging screen. (#2495, thanks @cdowdy)
+- Fixed: Remove horizontal scroll on login screen. (#2495, thanks @cdowdy)
 - Fixed: Ongoing cleanup of translation labels. (thanks @Chilion)
 - Fixed: "Clear Cache" now also clears all generated thumbs from `thumbs/`
 - Fixed: Nav links in admin dashboard, when accessed over HTTPS (#2499, thanks @glasspelican)
@@ -71,6 +108,7 @@ Released 2015-01-16. Notable changes:
 - Change: Add a data() Twig function to allow storing of data to be passed en masse to JavaScript (#2458)
 - Removed: Removed the `base-2013` theme
 - Removed: Ancient browser-specific tags
+- Change: System activity and change log permissions have changed and users now require systemlog and/or changelog permissions in permissions.yml (See #2805)
 
 Bolt 2.0.2
 ----------
