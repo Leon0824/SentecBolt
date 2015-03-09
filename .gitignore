@@ -2,5 +2,4 @@
 logs/
 sites/
 !sites/app/config/
-!sites/app/
 !sites/theme/
