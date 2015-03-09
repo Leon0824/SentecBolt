@@ -9,17 +9,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_check_update = true
   config.vm.box_download_insecure = true
 
-  config.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777","fmode=666"]
+  # config.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777","fmode=666"]
+  config.vm.synced_folder ".", "/vagrant", :mount_options => ["dmode=777","fmode=777"]
 
   # Port Forwarding for:
   ## NginX
   config.vm.network "forwarded_port", guest: 80, host: 8080
   ## MySQL
-  config.vm.network "forwarded_port", guest: 3306, host: 33060
+  # config.vm.network "forwarded_port", guest: 3306, host: 33060
   ## MongoDB
-  config.vm.network "forwarded_port", guest: 27017, host: 20017
+  # config.vm.network "forwarded_port", guest: 27017, host: 20017
   ## Redis
-  config.vm.network "forwarded_port", guest: 6379, host: 63790
+  # config.vm.network "forwarded_port", guest: 6379, host: 63790
   
   # Allow more memory and fix this problem : http://askubuntu.com/questions/238040/how-do-i-fix-name-service-for-vagrant-client
   config.vm.provider "virtualbox" do |v|
