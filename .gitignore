@@ -1,5 +1,11 @@
 .vagrant
 logs/
-sites/
-!sites/app/config/
-!sites/theme/
+sites/app/cache/
+sites/app/database/
+sites/app/resources/
+sites/app/theme_defaults/
+sites/app/view/
+sites/files/
+sites/src/
+sites/theme/SentecBase-2014/
+sites/vendor/
