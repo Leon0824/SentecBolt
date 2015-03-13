@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Port Forwarding for:
   ## NginX
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 80, host: 8081
   ## MySQL
   # config.vm.network "forwarded_port", guest: 3306, host: 33060
   ## MongoDB
